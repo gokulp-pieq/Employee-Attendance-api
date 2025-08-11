@@ -1,5 +1,4 @@
 package com.gokul
-import com.gokul.exceptionMapper.BadRequestExceptionMapper
 import com.gokul.model.AttendanceList
 import com.gokul.model.EmployeeList
 import com.gokul.resource.AttendanceResource
@@ -16,7 +15,6 @@ class Application : Application<AttendanceConfiguration>() {
         val employeeResource= EmployeeResource(attendanceManager)
         environment.jersey().register(attendanceResource)
         environment.jersey().register(employeeResource)
-        environment.jersey().register(BadRequestExceptionMapper())
     }
 }
 fun main(args: Array<String>) {
