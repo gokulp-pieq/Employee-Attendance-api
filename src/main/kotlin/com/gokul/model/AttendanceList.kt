@@ -8,11 +8,8 @@ import java.time.temporal.ChronoUnit
 class AttendanceList : ArrayList<Attendance>() {
 
 
-    fun add(empId: String, dateTime: LocalDateTime): Boolean {
-        if (hasAlreadyCheckedIn(empId, dateTime)) {
-            return false
-        }
-        return super.add(Attendance(empId, dateTime))
+    override fun add(attendance: Attendance): Boolean {
+        return super.add(attendance)
     }
 
     fun hasAlreadyCheckedIn(empId: String, inputDateTime: LocalDateTime): Boolean {
@@ -28,6 +25,11 @@ class AttendanceList : ArrayList<Attendance>() {
                     it.checkOutDateTime == null &&
                     it.checkInDateTime.truncatedTo(ChronoUnit.MINUTES) < checkOutDateTime.truncatedTo(ChronoUnit.MINUTES)
         }
+    }
+
+    fun checkOut(attendance: Attendance,checkOutDateTime: LocalDateTime){
+        attendance.checkOutDateTime=checkOutDateTime
+        attendance.workingHrs=Duration.between(attendance.checkInDateTime,checkOutDateTime)
     }
 
     fun summaryOfWorkingHrs(startDate: LocalDate,endDate: LocalDate): List<String>{

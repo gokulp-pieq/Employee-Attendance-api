@@ -1,5 +1,7 @@
 package com.gokul.service
 
+import com.gokul.dto.CheckInRequest
+import com.gokul.dto.CheckOutRequest
 import com.gokul.model.Attendance
 import com.gokul.model.AttendanceList
 import com.gokul.model.Employee
@@ -11,26 +13,27 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
+import jakarta.ws.rs.BadRequestException
 
 class EmployeeManager(private val employeeList: EmployeeList,private val attendanceList: AttendanceList) {
 
-    init {
-        addInitialEmployees()
-    }
-
-    fun addInitialEmployees() {
-        employeeList.addAll(
-            listOf(
-                Employee("Gokul", "P", Role.DEVELOPER, Manager.PIEQM1001),
-                Employee( "Mark", "Lee", Role.DEVELOPER, Manager.PIEQM1001),
-                Employee( "Jack", "Lee", Role.INTERN, Manager.PIEQM1003),
-                Employee( "Ashok", "Kumar", Role.DESIGNER, Manager.PIEQM1002),
-                Employee( "Bob", "John", Role.DESIGNER,Manager.PIEQM1003),
-                Employee("Tim", "David", Role.INTERN, Manager.PIEQM1003)
-            )
-        )
-        employeeList.forEach { it.generateEmpId() }
-    }
+//    init {
+//        addInitialEmployees()
+//    }
+//
+//    fun addInitialEmployees() {
+//        employeeList.addAll(
+//            listOf(
+//                Employee("Gokul", "P", Role.DEVELOPER, Manager.PIEQM1001),
+//                Employee( "Mark", "Lee", Role.DEVELOPER, Manager.PIEQM1001),
+//                Employee( "Jack", "Lee", Role.INTERN, Manager.PIEQM1003),
+//                Employee( "Ashok", "Kumar", Role.DESIGNER, Manager.PIEQM1002),
+//                Employee( "Bob", "John", Role.DESIGNER,Manager.PIEQM1003),
+//                Employee("Tim", "David", Role.INTERN, Manager.PIEQM1003)
+//            )
+//        )
+//        employeeList.forEach { it.generateEmpId() }
+//    }
 
     //Add new Employee
     fun addEmployee(employee: Employee) :String{
@@ -52,26 +55,22 @@ class EmployeeManager(private val employeeList: EmployeeList,private val attenda
         return employeeList.toString()
     }
 
-    fun checkIn(empId: String, checkInDateTime: String): String {
-        if (employeeList.employeeExists(empId)==null){
-            return "Employee ID not found. Check in failed."  //Employee not found with the given id
+    fun checkIn(request: CheckInRequest): Attendance {
+        if (employeeList.employeeExists(request.empId)==null){
+            throw BadRequestException("Employee ID ${request.empId} not found")  //Employee not found with the given id
         }
 
-        val parsedDateTime = validateDateTime(checkInDateTime)
+        val checkInDateTime = validateDateTime(request.checkInDateTime)
 
-        if (parsedDateTime == null) {
-            return "Invalid dateTime. Check in failed."
+        if(attendanceList.hasAlreadyCheckedIn(request.empId,checkInDateTime)){
+            throw BadRequestException("User already checked in today")
         }
-
-        if(attendanceList.add(empId, parsedDateTime)){
-            val formatter= DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
-            return "Check in successful!\nEmployee Id: $empId DateTime: ${parsedDateTime.format(formatter)}"
-        }
-
-        return "Employee has already checked in today. Check in failed."
+        val attendance= Attendance(request.empId, checkInDateTime)
+        attendanceList.add(attendance)
+        return attendance
     }
 
-    private fun validateDateTime(inputDateTime: String): LocalDateTime?{
+    private fun validateDateTime(inputDateTime: String): LocalDateTime{
         val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
 
         return if (inputDateTime.isEmpty()) {
@@ -80,31 +79,28 @@ class EmployeeManager(private val employeeList: EmployeeList,private val attenda
             try {
                 val dateTime = LocalDateTime.parse(inputDateTime, formatter)
                 if (dateTime.isAfter(LocalDateTime.now())) {  //Future date time
-                    null
+                    throw BadRequestException("Future time not allowed")
                 } else dateTime
             } catch (e:DateTimeException) {  //Invalid format
-                null
+                throw BadRequestException("Invalid date time format. Use(yyyy-MM-dd HH:mm)")
             }
         }
     }
 
-    fun checkOut(empId: String,checkOutDateTime: String): String{
-        if (employeeList.employeeExists(empId)==null){
-            return "Employee ID not found. Check out failed."     //Employee not found with the given id
+    fun checkOut(request: CheckOutRequest): Attendance{
+        if (employeeList.employeeExists(request.empId)==null){
+            throw BadRequestException("Employee ID ${request.empId} not found")  //Employee not found with the given id
         }
 
-        val parsedCheckOutDateTime= validateDateTime(checkOutDateTime)
-        if (parsedCheckOutDateTime == null) {
-            return "Invalid dateTime. Check out failed."
-        }
+        val checkOutDateTime= validateDateTime(request.checkOutDateTime)
 
-        val attendance: Attendance?= attendanceList.validateCheckOut(empId,parsedCheckOutDateTime)
+        val attendance: Attendance?= attendanceList.validateCheckOut(request.empId,checkOutDateTime)
         if(attendance== null){
-            return "No valid check-in yet"    //Invalid check-out
+            throw BadRequestException("No valid check-ins yet")    //Invalid check-out
         }
 
-        attendance.checkOut(parsedCheckOutDateTime)  //Valid check out
-        return "Check out successful!\n$attendance"
+        attendanceList.checkOut(attendance,checkOutDateTime)  //Valid check out
+        return attendance
     }
 
     fun deleteAttendanceEntry(empId: String,date: String): String{

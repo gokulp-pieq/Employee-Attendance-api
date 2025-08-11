@@ -1,13 +1,14 @@
 package com.gokul.dto
 
+import com.fasterxml.jackson.annotation.JsonFormat
+import com.fasterxml.jackson.annotation.JsonProperty
 import org.hibernate.validator.constraints.NotBlank
-import javax.validation.constraints.NotNull
+import java.time.LocalDateTime
 
 
 data class CheckInRequest(
-    @field:NotNull(message="Employee Id cannot be empty")
-    @field:NotBlank(message = "Employee Id cannot be null")
-    val empId: String="",
-
-    val checkInDateTime: String=""
+    @get:JsonProperty("empId")
+    @get:NotBlank(message = "empId cannot be blank")
+    val empId: String,
+    val checkInDateTime: String
 )

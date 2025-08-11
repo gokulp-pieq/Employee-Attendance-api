@@ -16,6 +16,8 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("io.dropwizard:dropwizard-core:1.3.29")
+    implementation("jakarta.validation:jakarta.validation-api:3.0.2")
+    implementation("jakarta.ws.rs:jakarta.ws.rs-api:3.1.0")
     implementation(kotlin("stdlib"))
 }
 

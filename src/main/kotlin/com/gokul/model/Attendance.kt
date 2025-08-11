@@ -1,20 +1,21 @@
 package com.gokul.model
 
+import com.fasterxml.jackson.annotation.JsonFormat
+import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDateTime
 import java.time.Duration
 
 class Attendance(
     val empId: String,
-    val checkInDateTime: LocalDateTime,
-){
+    @get:JsonProperty("checkInDateTime")
+    @get:JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+    val checkInDateTime: LocalDateTime) {
 
-    var checkOutDateTime: LocalDateTime? = null
-        private set
-    var workingHrs: Duration= Duration.ZERO
-        private set
+    @get:JsonProperty("checkOutDateTime")
+    @get:JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+    var checkOutDateTime: LocalDateTime?=null
 
-    fun checkOut(checkOutDateTime: LocalDateTime){
-        this.checkOutDateTime=checkOutDateTime
-        this.workingHrs=Duration.between(this.checkInDateTime,this.checkOutDateTime)
-    }
+    @get:JsonProperty("workingHrs")
+    @get:JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+    var workingHrs: Duration = Duration.ZERO
 }
