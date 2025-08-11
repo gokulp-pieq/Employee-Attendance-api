@@ -6,14 +6,12 @@ import com.gokul.model.Attendance
 import com.gokul.model.AttendanceList
 import com.gokul.model.Employee
 import com.gokul.model.EmployeeList
-import com.gokul.model.Manager
-import com.gokul.model.Role
 import java.time.DateTimeException
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
-import jakarta.ws.rs.BadRequestException
+import javax.ws.rs.BadRequestException
 
 class EmployeeManager(private val employeeList: EmployeeList,private val attendanceList: AttendanceList) {
 
@@ -71,7 +69,7 @@ class EmployeeManager(private val employeeList: EmployeeList,private val attenda
     }
 
     private fun validateDateTime(inputDateTime: String): LocalDateTime{
-        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
 
         return if (inputDateTime.isEmpty()) {
             LocalDateTime.now()

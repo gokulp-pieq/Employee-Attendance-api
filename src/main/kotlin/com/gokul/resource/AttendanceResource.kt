@@ -4,6 +4,7 @@ import com.gokul.dto.CheckInRequest
 import com.gokul.dto.CheckOutRequest
 import com.gokul.model.Employee
 import com.gokul.service.EmployeeManager
+import jakarta.ws.rs.PATCH
 import javax.validation.Valid
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
