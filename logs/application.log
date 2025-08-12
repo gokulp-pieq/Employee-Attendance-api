@@ -1,0 +1,205 @@
+2025-08-12 10:47:27,580 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-08-12 10:47:27,592 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-08-12 10:47:27,602 [main] INFO  io.dropwizard.server.ServerFactory - Starting Application
+2025-08-12 10:47:27,678 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 10:47:27,678 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 10:47:27,679 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 21.0.8+9-LTS
+2025-08-12 10:47:28,100 [main] INFO  io.dropwizard.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     /attendance (com.gokul.resource.AttendanceResource)
+    POST    /attendance/checkin (com.gokul.resource.AttendanceResource)
+    POST    /attendance/checkout (com.gokul.resource.AttendanceResource)
+    POST    /employee (com.gokul.resource.EmployeeResource)
+    DELETE  /employee/employee/{empId} (com.gokul.resource.EmployeeResource)
+    GET     /employee/employees (com.gokul.resource.EmployeeResource)
+
+2025-08-12 10:47:28,100 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@6009cd34{/,null,AVAILABLE}
+2025-08-12 10:47:28,103 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-08-12 10:47:28,103 [main] WARN  io.dropwizard.setup.AdminEnvironment - 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2025-08-12 10:47:28,104 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@d108406{/,null,AVAILABLE}
+2025-08-12 10:47:28,176 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 10:47:28,188 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 10:47:28,189 [main] INFO  org.eclipse.jetty.server.Server - Started @1836ms
+2025-08-12 10:50:03,691 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-08-12 10:50:03,694 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-08-12 10:50:03,705 [main] INFO  io.dropwizard.server.ServerFactory - Starting Application
+2025-08-12 10:50:03,780 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 10:50:03,780 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 10:50:03,782 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 21.0.8+9-LTS
+2025-08-12 10:50:04,240 [main] INFO  io.dropwizard.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     /attendance (com.gokul.resource.AttendanceResource)
+    POST    /attendance/checkin (com.gokul.resource.AttendanceResource)
+    UNKNOWN /attendance/checkout (javax.ws.rs.core.Response)
+    POST    /employee (com.gokul.resource.EmployeeResource)
+    DELETE  /employee/employee/{empId} (com.gokul.resource.EmployeeResource)
+    GET     /employee/employees (com.gokul.resource.EmployeeResource)
+
+2025-08-12 10:50:04,241 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@7f1f60a0{/,null,AVAILABLE}
+2025-08-12 10:50:04,245 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-08-12 10:50:04,245 [main] WARN  io.dropwizard.setup.AdminEnvironment - 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2025-08-12 10:50:04,245 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@63de4fa{/,null,AVAILABLE}
+2025-08-12 10:50:04,325 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 10:50:04,338 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 10:50:04,339 [main] INFO  org.eclipse.jetty.server.Server - Started @1881ms
+2025-08-12 10:53:33,486 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-08-12 10:53:33,490 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-08-12 10:53:33,501 [main] INFO  io.dropwizard.server.ServerFactory - Starting Application
+2025-08-12 10:53:33,578 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 10:53:33,579 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 10:53:33,580 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 21.0.8+9-LTS
+2025-08-12 10:53:34,026 [main] INFO  io.dropwizard.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     /attendance (com.gokul.resource.AttendanceResource)
+    POST    /attendance/checkin (com.gokul.resource.AttendanceResource)
+    UNKNOWN /attendance/checkout (javax.ws.rs.core.Response)
+    POST    /employee (com.gokul.resource.EmployeeResource)
+    DELETE  /employee/employee/{empId} (com.gokul.resource.EmployeeResource)
+    GET     /employee/employees (com.gokul.resource.EmployeeResource)
+
+2025-08-12 10:53:34,027 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@7f1f60a0{/,null,AVAILABLE}
+2025-08-12 10:53:34,029 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-08-12 10:53:34,030 [main] WARN  io.dropwizard.setup.AdminEnvironment - 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2025-08-12 10:53:34,030 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@63de4fa{/,null,AVAILABLE}
+2025-08-12 10:53:34,106 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 10:53:34,120 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 10:53:34,120 [main] INFO  org.eclipse.jetty.server.Server - Started @1861ms
+2025-08-12 11:11:29,349 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-08-12 11:11:29,352 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-08-12 11:11:29,362 [main] INFO  io.dropwizard.server.ServerFactory - Starting Application
+2025-08-12 11:11:29,448 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 11:11:29,448 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 11:11:29,450 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 21.0.8+9-LTS
+2025-08-12 11:11:29,905 [main] INFO  io.dropwizard.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     /attendance (com.gokul.resource.AttendanceResource)
+    POST    /attendance/checkin (com.gokul.resource.AttendanceResource)
+    UNKNOWN /attendance/checkout (javax.ws.rs.core.Response)
+    POST    /employee (com.gokul.resource.EmployeeResource)
+    DELETE  /employee/employee/{empId} (com.gokul.resource.EmployeeResource)
+    GET     /employee/employees (com.gokul.resource.EmployeeResource)
+
+2025-08-12 11:11:29,906 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@7f1f60a0{/,null,AVAILABLE}
+2025-08-12 11:11:29,910 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-08-12 11:11:29,910 [main] WARN  io.dropwizard.setup.AdminEnvironment - 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2025-08-12 11:11:29,911 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@63de4fa{/,null,AVAILABLE}
+2025-08-12 11:11:29,984 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 11:11:29,998 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 11:11:29,998 [main] INFO  org.eclipse.jetty.server.Server - Started @1979ms
+2025-08-12 11:16:35,249 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-08-12 11:16:35,251 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-08-12 11:16:35,262 [main] INFO  io.dropwizard.server.ServerFactory - Starting Application
+2025-08-12 11:16:35,356 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 11:16:35,356 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 11:16:35,359 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 21.0.8+9-LTS
+2025-08-12 11:16:35,878 [main] INFO  io.dropwizard.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     /attendance (com.gokul.resource.AttendanceResource)
+    POST    /attendance/checkin (com.gokul.resource.AttendanceResource)
+    PUT     /attendance/checkout (com.gokul.resource.AttendanceResource)
+    POST    /employee (com.gokul.resource.EmployeeResource)
+    DELETE  /employee/employee/{empId} (com.gokul.resource.EmployeeResource)
+    GET     /employee/employees (com.gokul.resource.EmployeeResource)
+
+2025-08-12 11:16:35,879 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@60928a61{/,null,AVAILABLE}
+2025-08-12 11:16:35,882 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-08-12 11:16:35,882 [main] WARN  io.dropwizard.setup.AdminEnvironment - 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2025-08-12 11:16:35,883 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@6a5dd083{/,null,AVAILABLE}
+2025-08-12 11:16:35,959 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 11:16:35,966 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 11:16:35,966 [main] INFO  org.eclipse.jetty.server.Server - Started @1975ms
+2025-08-12 12:08:57,395 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering jersey handler with root path prefix: /
+2025-08-12 12:08:57,397 [main] INFO  io.dropwizard.server.DefaultServerFactory - Registering admin handler with root path prefix: /
+2025-08-12 12:08:57,422 [main] INFO  io.dropwizard.server.ServerFactory - Starting Application
+2025-08-12 12:08:57,495 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 12:08:57,495 [main] INFO  org.eclipse.jetty.setuid.SetUIDListener - Opened admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 12:08:57,500 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 21.0.8+9-LTS
+2025-08-12 12:08:58,011 [main] INFO  io.dropwizard.jersey.DropwizardResourceConfig - The following paths were found for the configured resources:
+
+    GET     /attendance (com.gokul.resource.AttendanceResource)
+    POST    /attendance/checkin (com.gokul.resource.AttendanceResource)
+    PUT     /attendance/checkout (com.gokul.resource.AttendanceResource)
+    GET     /attendance/workSummary (com.gokul.resource.AttendanceResource)
+    POST    /employee (com.gokul.resource.EmployeeResource)
+    DELETE  /employee/employee/{empId} (com.gokul.resource.EmployeeResource)
+    GET     /employee/employees (com.gokul.resource.EmployeeResource)
+
+2025-08-12 12:08:58,012 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@32a8ca06{/,null,AVAILABLE}
+2025-08-12 12:08:58,016 [main] INFO  io.dropwizard.setup.AdminEnvironment - tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+2025-08-12 12:08:58,016 [main] WARN  io.dropwizard.setup.AdminEnvironment - 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2025-08-12 12:08:58,017 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started i.d.j.MutableServletContextHandler@163e8949{/,null,AVAILABLE}
+2025-08-12 12:08:58,137 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started application@7f323b3a{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-08-12 12:08:58,151 [main] INFO  org.eclipse.jetty.server.AbstractConnector - Started admin@4f169009{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+2025-08-12 12:08:58,152 [main] INFO  org.eclipse.jetty.server.Server - Started @2122ms

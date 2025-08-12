@@ -13,6 +13,9 @@ repositories {
     mavenCentral()
 }
 
+tasks.named<JavaExec>("run") {
+    args = listOf("server", "src/main/resources/config.yml")
+}
 dependencies {
     testImplementation(kotlin("test"))
     implementation("io.dropwizard:dropwizard-core:1.3.29")
@@ -20,6 +23,8 @@ dependencies {
     implementation("jakarta.ws.rs:jakarta.ws.rs-api:3.1.0")
     implementation(kotlin("stdlib"))
 }
+
+
 
 tasks.test {
     useJUnitPlatform()

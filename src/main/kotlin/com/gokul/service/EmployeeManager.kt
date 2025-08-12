@@ -12,6 +12,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
 import javax.ws.rs.BadRequestException
+import com.gokul.dto.WorkSummary
 
 class EmployeeManager(private val employeeList: EmployeeList,private val attendanceList: AttendanceList) {
 
@@ -54,9 +55,9 @@ class EmployeeManager(private val employeeList: EmployeeList,private val attenda
     }
 
     fun checkIn(request: CheckInRequest): Attendance {
-        if (employeeList.employeeExists(request.empId)==null){
-            throw BadRequestException("Employee ID ${request.empId} not found")  //Employee not found with the given id
-        }
+//        if (employeeList.employeeExists(request.empId)==null){
+//            throw BadRequestException("Employee ID ${request.empId} not found")  //Employee not found with the given id
+//        }
 
         val checkInDateTime = validateDateTime(request.checkInDateTime)
 
@@ -86,9 +87,9 @@ class EmployeeManager(private val employeeList: EmployeeList,private val attenda
     }
 
     fun checkOut(request: CheckOutRequest): Attendance{
-        if (employeeList.employeeExists(request.empId)==null){
-            throw BadRequestException("Employee ID ${request.empId} not found")  //Employee not found with the given id
-        }
+//        if (employeeList.employeeExists(request.empId)==null){
+//            throw BadRequestException("Employee ID ${request.empId} not found")  //Employee not found with the given id
+//        }
 
         val checkOutDateTime= validateDateTime(request.checkOutDateTime)
 
@@ -112,8 +113,8 @@ class EmployeeManager(private val employeeList: EmployeeList,private val attenda
         return "No Attendance entry find with the give details. Failed to delete"
     }
 
-    fun getAttendanceList(): String{
-        return attendanceList.toString()
+    fun getAttendanceList(): List<Attendance>{
+        return attendanceList
     }
 
     //Return list of Attendances, where checked in only, no checked out.
@@ -122,7 +123,7 @@ class EmployeeManager(private val employeeList: EmployeeList,private val attenda
     }
 
     //Returns cumulative working hrs of employees between the given dates
-    fun getTotalWorkingHrsBetween(startingDate: String,endingDate: String): List<String>?{
+    fun getTotalWorkingHrsBetween(startingDate: String,endingDate: String): List<WorkSummary>?{
         val startDate = parseDate(startingDate)
         if(startDate==null){
             return null
@@ -137,7 +138,7 @@ class EmployeeManager(private val employeeList: EmployeeList,private val attenda
     }
 
     fun parseDate(input: String): LocalDate? {
-        val formatter= DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        val formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd")
         return try {
             LocalDate.parse(input, formatter)
         } catch (e: DateTimeParseException) {

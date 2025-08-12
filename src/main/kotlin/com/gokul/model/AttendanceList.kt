@@ -1,5 +1,6 @@
 package com.gokul.model
 
+import com.gokul.dto.WorkSummary
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -32,32 +33,43 @@ class AttendanceList : ArrayList<Attendance>() {
         attendance.workingHrs=Duration.between(attendance.checkInDateTime,checkOutDateTime)
     }
 
-    fun summaryOfWorkingHrs(startDate: LocalDate,endDate: LocalDate): List<String>{
-        val ansList=mutableListOf<String>()
+    fun summaryOfWorkingHrs(startDate: LocalDate,endDate: LocalDate): List<WorkSummary>{
+        val ansList=mutableListOf<WorkSummary>()
         if(this.isEmpty())   {
             return ansList
         }
 
-        //Sort the filtered list based on empId
+        //Sort the list based on empId
         val sortedList=this.sortedBy { it.empId }
 
-        var lastEmployeeId=sortedList[0].empId
-        var totMins: Duration= Duration.ZERO
+        var lastEmployeeId = sortedList[0].empId
+        var totDuration = Duration.ZERO
 
-        for(attendance in this){
-            if (attendance.checkOutDateTime != null && attendance.checkInDateTime.toLocalDate() in startDate..endDate){
-                if(attendance.empId==lastEmployeeId){
-                    totMins+=attendance.workingHrs
-                }
-                else{
-                    ansList.add("$lastEmployeeId  ->  ${totMins.toHours()}h ${totMins.toMinutesPart()}m")
-                    lastEmployeeId=attendance.empId
-                    totMins= attendance.workingHrs
-                }
+        for (attendance in sortedList) {
+            if (attendance.empId == lastEmployeeId) {
+                totDuration += attendance.workingHrs
+            } else {
+                ansList.add(
+                    WorkSummary(
+                        empId = lastEmployeeId,
+                        hours = totDuration.toHours(),
+                        minutes = totDuration.toMinutesPart()
+                    )
+                )
+                lastEmployeeId = attendance.empId
+                totDuration = attendance.workingHrs
             }
         }
-        if(totMins!= Duration.ZERO){
-            ansList.add("$lastEmployeeId  ->  ${totMins.toHours()}h ${totMins.toMinutesPart()}m")
+
+        // Add last employee total
+        if (totDuration != Duration.ZERO) {
+            ansList.add(
+                WorkSummary(
+                    empId = lastEmployeeId,
+                    hours = totDuration.toHours(),
+                    minutes = totDuration.toMinutesPart()
+                )
+            )
         }
         return ansList
     }

@@ -16,14 +16,9 @@ class EmployeeResource(
     private val employeeManager: EmployeeManager
 ) {
     @POST
-    @Path("/employee")
     fun addEmployee(employee: Employee): Response {
         val result = employeeManager.addEmployee(employee)
-        return if (result.startsWith("Employee Added")) {
-            Response.status(Response.Status.CREATED).entity(mapOf("message" to result)).build()
-        } else {
-            Response.status(Response.Status.BAD_REQUEST).entity(mapOf("error" to result)).build()
-        }
+        return Response.ok(result).build()
     }
 
     @DELETE
