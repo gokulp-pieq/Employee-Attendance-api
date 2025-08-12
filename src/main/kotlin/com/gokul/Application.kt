@@ -1,6 +1,6 @@
 package com.gokul
-import com.gokul.model.AttendanceList
-import com.gokul.model.EmployeeList
+import com.gokul.dao.AttendanceList
+import com.gokul.dao.EmployeeList
 import com.gokul.resource.AttendanceResource
 import com.gokul.resource.EmployeeResource
 import com.gokul.service.EmployeeManager

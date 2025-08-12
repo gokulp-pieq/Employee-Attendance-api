@@ -1,6 +1,7 @@
-package com.gokul.model
+package com.gokul.dao
 
 import com.gokul.dto.WorkSummary
+import com.gokul.model.Attendance
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -28,12 +29,12 @@ class AttendanceList : ArrayList<Attendance>() {
         }
     }
 
-    fun checkOut(attendance: Attendance,checkOutDateTime: LocalDateTime){
+    fun checkOut(attendance: Attendance, checkOutDateTime: LocalDateTime){
         attendance.checkOutDateTime=checkOutDateTime
-        attendance.workingHrs=Duration.between(attendance.checkInDateTime,checkOutDateTime)
+        attendance.workingHrs= Duration.between(attendance.checkInDateTime,checkOutDateTime)
     }
 
-    fun summaryOfWorkingHrs(startDate: LocalDate,endDate: LocalDate): List<WorkSummary>{
+    fun summaryOfWorkingHrs(startDate: LocalDate, endDate: LocalDate): List<WorkSummary>{
         val ansList=mutableListOf<WorkSummary>()
         if(this.isEmpty())   {
             return ansList
@@ -74,7 +75,7 @@ class AttendanceList : ArrayList<Attendance>() {
         return ansList
     }
 
-    fun delete(empId: String, date: LocalDate): Boolean {
-        return this.removeIf { it.empId == empId && it.checkInDateTime.toLocalDate() == date }
+    fun getIncompleteAttendance(): List<Attendance>{
+        return this.filter { it.checkOutDateTime==null }
     }
 }

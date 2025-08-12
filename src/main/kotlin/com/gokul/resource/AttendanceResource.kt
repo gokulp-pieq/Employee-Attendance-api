@@ -2,9 +2,7 @@ package com.gokul.resource
 
 import com.gokul.dto.CheckInRequest
 import com.gokul.dto.CheckOutRequest
-import com.gokul.model.Employee
 import com.gokul.service.EmployeeManager
-import jakarta.ws.rs.PATCH
 import javax.validation.Valid
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
@@ -32,9 +30,10 @@ class AttendanceResource(
     }
 
     @GET
+    @Path("/all")
     fun getAttendanceList(): Response {
-        val attendanceList = employeeManager.getAttendanceList()
-        return Response.ok(attendanceList).build()
+        val attendances = employeeManager.getAttendanceList()
+        return Response.ok(attendances).build()
     }
 
     @GET
@@ -58,5 +57,12 @@ class AttendanceResource(
                 .entity("Invalid date format. Please use dd-MM-yyyy")
                 .build()
         }
+    }
+
+    @GET
+    @Path("/all/incomplete")
+    fun getIncompleteAttendance(): Response {
+        val attendances = employeeManager.getIncompleteAttendances()
+        return Response.ok(attendances).build()
     }
 }

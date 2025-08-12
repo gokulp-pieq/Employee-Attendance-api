@@ -1,8 +1,6 @@
 package com.gokul.resource
 
-import com.gokul.dto.CheckInRequest
-import com.gokul.dto.CheckOutRequest
-import com.gokul.model.Employee
+import com.gokul.dto.CreateUserRequest
 import com.gokul.service.EmployeeManager
 import javax.validation.Valid
 import javax.ws.rs.*
@@ -16,26 +14,22 @@ class EmployeeResource(
     private val employeeManager: EmployeeManager
 ) {
     @POST
-    fun addEmployee(employee: Employee): Response {
-        val result = employeeManager.addEmployee(employee)
+    fun addEmployee(@Valid createUserRequest: CreateUserRequest): Response {
+        val result = employeeManager.addEmployee(createUserRequest)
         return Response.ok(result).build()
     }
 
     @DELETE
-    @Path("/employee/{empId}")
+    @Path("/{empId}")
     fun deleteEmployee(@PathParam("empId") empId: String): Response {
-        val success = employeeManager.deleteEmployee(empId)
-        return if (success) {
-            Response.ok(mapOf("message" to "Employee with id $empId deleted successfully")).build()
-        } else {
-            Response.status(Response.Status.NOT_FOUND).entity(mapOf("error" to "Employee with id $empId not found")).build()
-        }
+        employeeManager.deleteEmployee(empId)
+        return Response.noContent().build()
     }
 
     @GET
-    @Path("/employees")
+    @Path("/all")
     fun getAllEmployees(): Response {
-        val allEmployees = employeeManager.getEmployeesList()
-        return Response.ok(mapOf("employees" to allEmployees)).build()
+        val employees = employeeManager.getEmployeesList()
+        return Response.ok(employees).build()
     }
 }

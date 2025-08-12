@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat
 import java.time.LocalDateTime
 import java.time.Duration
 
-class Attendance(
+data class Attendance(
     val empId: String,
     @get:JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     val checkInDateTime: LocalDateTime) {
